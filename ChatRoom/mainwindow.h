@@ -6,6 +6,7 @@
 #include <mainwindowregister.h>
 #include <QTcpSocket>
 #include <QHostAddress>
+#include <QMessageBox>
 
 namespace Ui {
 class MainWindow;
@@ -20,12 +21,16 @@ public:
     ~MainWindow();
 
     MainWindowRegister* mainWindowRegister;
+    QTcpSocket* client;
 
     //打开注册页面
     void openMainWindowRegister();
 
-    //点击登录，返回0代表登陆失败
-    int login();
+    //根据服务器端信息判断登陆成功或者失败
+    void receiveMsgLogin();
+
+    //点击登录
+    void login();
 private:
     Ui::MainWindow *ui;
 };
