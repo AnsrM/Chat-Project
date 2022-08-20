@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <qpushbutton.h>
 #include <mainwindowregister.h>
+#include <mainwindowchat.h>
 #include <QTcpSocket>
 #include <QHostAddress>
 #include <QMessageBox>
@@ -25,6 +26,7 @@ public:
     QString password;
 
     MainWindowRegister* mainWindowRegister;
+    MainWindowChat* mainWindowChat;
     QTcpSocket* client;
 
     //打开注册页面
