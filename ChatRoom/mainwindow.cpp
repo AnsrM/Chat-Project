@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //接收服务器端信号
     connect(client, &QTcpSocket::readyRead, this, &MainWindow::receiveMsgLogin);
+
 }
 
 MainWindow::~MainWindow()
@@ -31,6 +32,21 @@ void MainWindow::openMainWindowRegister()
 {
     mainWindowRegister = new MainWindowRegister();
     mainWindowRegister->show();
+    this->hide();
+
+    //接收注册页面的信息
+    connect(mainWindowRegister, &MainWindowRegister::sendDataToMainWindow, this, &MainWindow::receiveDataFromRegister);
+
+    //接收注册页面信号
+    connect(mainWindowRegister, &MainWindowRegister::closeRegister, this, &MainWindow::closeMainWindowRegister);
+}
+
+void MainWindow::closeMainWindowRegister()
+{
+    mainWindowRegister->close();
+    delete mainWindowRegister;
+
+    this->show();
 }
 
 void MainWindow::login()
@@ -71,4 +87,15 @@ void MainWindow::receiveMsgLogin()
     {
         //building...
     }
+    else
+    {
+        QMessageBox::critical(this, "警告", "未知错误！", QMessageBox::Ok);
+    }
+}
+
+void MainWindow::receiveDataFromRegister(QString _username, QString _account, QString _password)
+{
+    userName = _username;
+    account = _account;
+    password = _password;
 }
