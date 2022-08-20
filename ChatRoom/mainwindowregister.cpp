@@ -13,7 +13,7 @@ MainWindowRegister::MainWindowRegister(QWidget *parent) :
     client->connectToHost(QHostAddress(hostAdress), 8000);
 
     //将数据发送给服务器端
-    connect(ui->pushButtonSubmit, &QPushButton::clicked, this, &MainWindowRegister::submitAndCloseWindow);
+    connect(ui->pushButtonSubmit, &QPushButton::clicked, this, &MainWindowRegister::submitData);
 
     //从服务器端接收信号
     connect(client, &QTcpSocket::readyRead, this, &MainWindowRegister::receiveMsgRegister);
@@ -57,7 +57,7 @@ void MainWindowRegister::receiveMsgRegister()
     else
     {
         QMessageBox::critical(this, "恭喜", "注册成功！", QMessageBox::Ok);
-        emit sendDataToMainWindow(ui->textEditUserName, recv, ui->textEditPassword1);
+        emit sendDataToMainWindow(ui->textEditUserName->toPlainText(), recv, ui->textEditPassword1->toPlainText());
         emit closeRegister();
     }
 }

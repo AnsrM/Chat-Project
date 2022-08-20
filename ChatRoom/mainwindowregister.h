@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QTcpSocket>
+#include <QHostAddress>
 
 namespace Ui {
 class MainWindowRegister;
