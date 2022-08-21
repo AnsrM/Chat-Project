@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "message.h"
+
+Message *message1;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -10,8 +13,11 @@ MainWindow::MainWindow(QWidget *parent) :
     //调试部分
     connect(ui->test,&QPushButton::clicked,this,[=]()
     {
-        mainWindowChat = new MainWindowChat();
-        mainWindowChat->show();
+        //mainWindowChat = new MainWindowChat();
+       //mainWindowChat->show();
+       //this->hide();
+        mainWindowUser = new MainWindowUser();
+        mainWindowUser->show();
         this->hide();
     }
     );
@@ -60,8 +66,8 @@ void MainWindow::closeMainWindowRegister()
 
 void MainWindow::login()
 {
-    QString account = ui->textEditAccount->toPlainText();
-    QString password = ui->textEditPassword->toPlainText();
+    account = ui->textEditAccount->toPlainText();
+    password = ui->textEditPassword->toPlainText();
 
     if (account.isEmpty() || password.isEmpty())
     {
@@ -76,11 +82,11 @@ void MainWindow::login()
 
 void MainWindow::receiveMsgLogin()
 {
-    int recv = client->readAll().toInt();
+    QString recv(client->readAll());
 
     //0: 没有此账号，弹框，清除账号密码
     //1: 密码错误，弹框，清除密码
-    //2: 正确，进入聊天界面
+    //其他: 返回用户名，进入聊天界面
     if (recv == 0)
     {
         QMessageBox::critical(this, "警告", "账号不存在！", QMessageBox::Ok);
@@ -92,16 +98,17 @@ void MainWindow::receiveMsgLogin()
         QMessageBox::critical(this, "警告", "密码不正确！", QMessageBox::Ok);
         ui->textEditPassword->setText("");
     }
-    else if (recv == 2)
+    else if (!recv.isEmpty())
     {
-        mainWindowChat = new MainWindowChat();
-        mainWindowChat->show();
+        mainWindowUser = new MainWindowUser();
+        mainWindowUser->show();
+        userName = recv;
+        myIpAddress = read_ip_address();
+
+        emit message1->sendDataToMainWindowUser(myIpAddress,account,userName);
         this->hide();
     }
-    else
-    {
-        QMessageBox::critical(this, "警告", "未知错误！", QMessageBox::Ok);
-    }
+
 }
 
 void MainWindow::receiveDataFromRegister(QString _username, QString _account, QString _password)
@@ -109,4 +116,26 @@ void MainWindow::receiveDataFromRegister(QString _username, QString _account, QS
     userName = _username;
     account = _account;
     password = _password;
+
+    ui->textEditAccount->setText(account);
 }
+
+QString MainWindow::read_ip_address()
+{
+    QString ip_address;
+    QList<QHostAddress> ipAddressesList = QNetworkInterface::allAddresses();
+    for (int i = 0; i < ipAddressesList.size(); ++i)
+    {
+        if (ipAddressesList.at(i) != QHostAddress::LocalHost &&  ipAddressesList.at(i).toIPv4Address())
+        {
+            ip_address = ipAddressesList.at(i).toString();
+            qDebug()<<ip_address;  //debug
+            //break;
+        }
+    }
+    if (ip_address.isEmpty())
+        ip_address = QHostAddress(QHostAddress::LocalHost).toString();
+    return ip_address;
+}
+
+

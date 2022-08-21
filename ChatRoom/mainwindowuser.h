@@ -6,6 +6,7 @@
 #include <QTcpSocket>
 #include <QHostAddress>
 
+
 namespace Ui {
 class MainWindowUser;
 }
@@ -18,8 +19,15 @@ public:
     explicit MainWindowUser(QWidget *parent = 0);
     ~MainWindowUser();
 
+    QString account_user;
+    QString myIpAddress_user;
+    QString name_user;
+
 private:
     Ui::MainWindowUser *ui;
+
+private slots:
+    void receiveDataFromMainWindow(QString _ip, QString _account,QString _userName);
 };
 
 #endif // MAINWINDOWUSER_H

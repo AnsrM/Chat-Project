@@ -9,6 +9,7 @@
 #include <QTcpSocket>
 #include <QHostAddress>
 #include <QMessageBox>
+#include <QNetworkInterface>
 
 namespace Ui {
 class MainWindow;
@@ -25,9 +26,11 @@ public:
     QString userName;
     QString account;
     QString password;
+    QString myIpAddress;
 
     MainWindowRegister* mainWindowRegister;
     MainWindowChat* mainWindowChat;
+    MainWindowUser* mainWindowUser;
     QTcpSocket* client;
 
     //打开注册页面
@@ -39,11 +42,14 @@ public:
     //根据服务器端信息判断登陆成功或者失败
     void receiveMsgLogin();
 
+    //获取本地ip地址
+    QString read_ip_address();
+
     //点击登录
     void login();
+
 private:
     Ui::MainWindow *ui;
-
 private slots:
     void receiveDataFromRegister(QString _username, QString _account,QString _password);
 };

@@ -32,7 +32,8 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h \
     mainwindowregister.h \
     mainwindowchat.h \
-    mainwindowuser.h
+    mainwindowuser.h \
+    message.h
 
 FORMS    += mainwindow.ui \
     mainwindowregister.ui \

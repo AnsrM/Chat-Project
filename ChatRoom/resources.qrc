@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/new">
         <file>challenger.png</file>
+        <file>igang.png</file>
+        <file>wenzi.gif</file>
     </qresource>
 </RCC>

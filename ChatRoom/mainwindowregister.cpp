@@ -56,7 +56,7 @@ void MainWindowRegister::receiveMsgRegister()
     }
     else
     {
-        QMessageBox::critical(this, "恭喜", "注册成功！", QMessageBox::Ok);
+        QMessageBox::critical(this, "恭喜", "注册成功！您的账号为" + recv, QMessageBox::Ok);
         emit sendDataToMainWindow(ui->textEditUserName->toPlainText(), recv, ui->textEditPassword1->toPlainText());
         emit closeRegister();
     }
