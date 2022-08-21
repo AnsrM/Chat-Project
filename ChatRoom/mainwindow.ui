@@ -16,6 +16,13 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
+     <widget class="QPushButton" name="test">
+      <property name="text">
+       <string>测试</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <spacer name="verticalSpacer">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
@@ -86,11 +93,6 @@
        </item>
       </layout>
       <zorder>labelAccount</zorder>
-      <zorder>textEditAccount</zorder>
-      <zorder>labelAccount</zorder>
-      <zorder>textEditAccount</zorder>
-      <zorder>labelAccount</zorder>
-      <zorder>textEditAccount</zorder>
       <zorder>textEditAccount</zorder>
       <zorder>horizontalSpacer</zorder>
       <zorder>horizontalSpacer_2</zorder>
@@ -211,8 +213,6 @@
       </layout>
       <zorder>pushButtonRegister</zorder>
       <zorder>pushButtonLogin</zorder>
-      <zorder>pushButtonRegister</zorder>
-      <zorder>pushButtonLogin</zorder>
       <zorder>horizontalSpacer_5</zorder>
       <zorder>horizontalSpacer_6</zorder>
      </widget>
@@ -289,11 +289,11 @@
    </layout>
    <zorder>widget</zorder>
    <zorder>widget_2</zorder>
-   <zorder>labelPassword</zorder>
    <zorder>widget_3</zorder>
    <zorder>verticalSpacer</zorder>
    <zorder>verticalSpacer_2</zorder>
    <zorder>widget_4</zorder>
+   <zorder>test</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -301,7 +301,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>23</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

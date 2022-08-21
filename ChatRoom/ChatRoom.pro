@@ -26,12 +26,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     mainwindowregister.cpp \
-    mainwindowchat.cpp
+    mainwindowchat.cpp \
+    mainwindowuser.cpp
 
 HEADERS  += mainwindow.h \
     mainwindowregister.h \
-    mainwindowchat.h
+    mainwindowchat.h \
+    mainwindowuser.h
 
 FORMS    += mainwindow.ui \
     mainwindowregister.ui \
-    mainwindowchat.ui
+    mainwindowchat.ui \
+    mainwindowuser.ui
+
+RESOURCES += \
+    resources.qrc

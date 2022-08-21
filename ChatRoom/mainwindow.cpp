@@ -7,6 +7,15 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //调试部分
+    connect(ui->test,&QPushButton::clicked,this,[=]()
+    {
+        mainWindowChat = new MainWindowChat();
+        mainWindowChat->show();
+        this->hide();
+    }
+    );
+
     client = new QTcpSocket(this);
     //暂时随便写的ip和端口
     QString hostAdress = "192.168.1.106";
@@ -85,7 +94,9 @@ void MainWindow::receiveMsgLogin()
     }
     else if (recv == 2)
     {
-        //building...
+        mainWindowChat = new MainWindowChat();
+        mainWindowChat->show();
+        this->hide();
     }
     else
     {

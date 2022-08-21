@@ -5,6 +5,7 @@
 #include <qpushbutton.h>
 #include <mainwindowregister.h>
 #include <mainwindowchat.h>
+#include <mainwindowuser.h>
 #include <QTcpSocket>
 #include <QHostAddress>
 #include <QMessageBox>
