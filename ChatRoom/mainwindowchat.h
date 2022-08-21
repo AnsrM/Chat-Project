@@ -19,10 +19,14 @@ public:
     ~MainWindowChat();
 
     QTcpSocket* client;
+    QString myIpAddress_chat;
+    QString account_chat;
+    QString name_chat;
 
 private slots:
-
     void on_ClearButton_clicked();
+    void receiveDataFromMainWindowUser(QString _ip, QString _account,QString _userName);
+    void openthis();
 
 private:
     Ui::MainWindowChat *ui;

@@ -107,7 +107,7 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="FindFriendButton">
    <property name="geometry">
     <rect>
      <x>200</x>
@@ -126,20 +126,20 @@
      <x>40</x>
      <y>320</y>
      <width>131</width>
-     <height>41</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;请输入好友的账号：&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="text_friendaccount">
+  <widget class="QTextEdit" name="textEdit_friend">
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>330</y>
+     <y>320</y>
      <width>221</width>
-     <height>21</height>
+     <height>31</height>
     </rect>
    </property>
   </widget>

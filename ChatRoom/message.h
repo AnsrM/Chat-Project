@@ -9,6 +9,8 @@ public:
     Message(){};
 signals:
     void sendDataToMainWindowUser(QString myip,QString account,QString userName);
+    void sendDataToMainWindowChat(QString myip,QString account,QString userName);
+    void openMainWindowChat();
 };
 
 #endif // MESSAGE_H
