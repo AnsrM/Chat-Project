@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     client = new QTcpSocket(this);
     //暂时随便写的ip和端口
-    QString hostAdress = "192.168.1.106";
+    QString hostAdress = read_ip_address();
     client->connectToHost(QHostAddress(hostAdress), 8888);
 
     //打开注册页面

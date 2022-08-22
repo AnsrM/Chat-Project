@@ -15,7 +15,7 @@ MainWindowUser::MainWindowUser(QWidget *parent) :
     ui->setupUi(this);
 
     //gif动图
-    QMovie *movie = new QMovie("C:/Users/14769/Documents/GitHub/Chat-Project/ChatRoom/wenzi.gif");
+    QMovie *movie = new QMovie(":/new/wenzi.gif");
     ui->touxiang->setMovie(movie);
     movie->start();
 

@@ -16,13 +16,6 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
-     <widget class="QPushButton" name="test">
-      <property name="text">
-       <string>测试</string>
-      </property>
-     </widget>
-    </item>
-    <item>
      <spacer name="verticalSpacer">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
@@ -237,7 +230,7 @@
         <widget class="QLabel" name="labelError">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>200</width>
            <height>20</height>
           </size>
          </property>
@@ -293,7 +286,6 @@
    <zorder>verticalSpacer</zorder>
    <zorder>verticalSpacer_2</zorder>
    <zorder>widget_4</zorder>
-   <zorder>test</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -301,7 +293,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>26</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>

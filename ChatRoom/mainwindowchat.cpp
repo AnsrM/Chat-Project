@@ -27,6 +27,8 @@ MainWindowChat::MainWindowChat(QWidget *parent) :
             QMessageBox::critical(this, "警告", "发送消息为空！", QMessageBox::Ok);
         }
         client->write(str.toLocal8Bit());
+
+        ui->textEdit_receive->append("<font color=\"#0000FF\">我: </font>" + str + '\n');
     });
 
     connect(ui->pushButtonReturn, &QPushButton::clicked, this, &MainWindowChat::returnUser);

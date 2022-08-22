@@ -74,6 +74,9 @@
      <height>321</height>
     </rect>
    </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
