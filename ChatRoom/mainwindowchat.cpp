@@ -16,11 +16,7 @@ MainWindowChat::MainWindowChat(QWidget *parent) :
     connect(message2,SIGNAL(sendDataToMainWindowChat(QString,QString,QString)),this,SLOT(receiveDataFromMainWindowUser(QString,QString,QString)));
 
     //接受消息
-    connect(client,&QTcpSocket::readyRead,this,[=]()
-    {
-        QString str(client->readAll());
-        ui->textEdit_receive->append(str+"\n");
-    });
+    connect(client, &QTcpSocket::readyRead, this, &MainWindowChat::receiveMsg);
 
     //发送消息
     connect(ui->SendButton,&QPushButton::clicked,this,[=]()
@@ -33,6 +29,7 @@ MainWindowChat::MainWindowChat(QWidget *parent) :
         client->write(str.toLocal8Bit());
     });
 
+    connect(ui->pushButtonReturn, &QPushButton::clicked, this, &MainWindowChat::returnUser);
 }
 
 MainWindowChat::~MainWindowChat()
@@ -54,4 +51,16 @@ void MainWindowChat::receiveDataFromMainWindowUser(QString _ip, QString _account
     ui->text_ip->setText(myIpAddress_chat);
     ui->text_id->setText(account_chat);
     ui->text_name->setText(name_chat);
+}
+
+void MainWindowChat::receiveMsg()
+{
+    QString str(client->readAll());
+    ui->textEdit_receive->append(str+"\n");
+}
+
+void MainWindowChat::returnUser()
+{
+    emit closeWindowChat();
+    disconnect(client, &QTcpSocket::readyRead, this, &MainWindowChat::receiveMsg);
 }

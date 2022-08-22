@@ -13,21 +13,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //调试部分
-    connect(ui->test,&QPushButton::clicked,this,[=]()
-    {
-        //mainWindowChat = new MainWindowChat();
-       //mainWindowChat->show();
-       //this->hide();
-        mainWindowUser = new MainWindowUser();
-        mainWindowUser->show();
-        this->hide();
-    }
-    );
-
     client = new QTcpSocket(this);
     //暂时随便写的ip和端口
-    QString hostAdress = "127.0.0.1";
+    QString hostAdress = "192.168.1.106";
     client->connectToHost(QHostAddress(hostAdress), 8888);
 
     //打开注册页面
@@ -41,7 +29,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //接受user发出的信号，打开chat页面
     connect(message3,SIGNAL(openMainWindowChat()),this,SLOT(openChat()));
-
 }
 
 MainWindow::~MainWindow()
@@ -60,12 +47,16 @@ void MainWindow::openMainWindowRegister()
 
     //接收注册页面信号
     connect(mainWindowRegister, &MainWindowRegister::closeRegister, this, &MainWindow::closeMainWindowRegister);
+
+    disconnect(client, &QTcpSocket::readyRead, this, &MainWindow::receiveMsgLogin);
 }
 
 void MainWindow::closeMainWindowRegister()
 {
     mainWindowRegister->close();
     delete mainWindowRegister;
+
+    connect(client, &QTcpSocket::readyRead, this, &MainWindow::receiveMsgLogin);
 
     this->show();
 }
@@ -111,6 +102,9 @@ void MainWindow::receiveMsgLogin()
         userName = recv;
         myIpAddress = read_ip_address();
 
+        //接收user发出的信号，关闭user
+        connect(mainWindowUser, &MainWindowUser::closeWindowUser, this, &MainWindow::closeWindowUser);
+
         disconnect(client, &QTcpSocket::readyRead, this, &MainWindow::receiveMsgLogin);
 
         emit message1->sendDataToMainWindowUser(myIpAddress,account,userName);
@@ -150,7 +144,20 @@ void MainWindow::openChat()
 {
     mainWindowChat = new MainWindowChat();
     mainWindowChat->show();
-    disconnect(message3,SIGNAL(openMainWindowChat()),this,SLOT(openChat()));
+    connect(mainWindowChat, &MainWindowChat::closeWindowChat, this, &MainWindow::closeWindowChat);
     emit message2->sendDataToMainWindowChat(myIpAddress,account,userName);
 }
 
+void MainWindow::closeWindowUser()
+{
+    mainWindowUser->hide();
+    this->show();
+    connect(client, &QTcpSocket::readyRead, this, &MainWindow::receiveMsgLogin);
+}
+
+void MainWindow::closeWindowChat()
+{
+    mainWindowChat->hide();
+    mainWindowUser->show();
+    connect(client, &QTcpSocket::readyRead, mainWindowUser, &MainWindowUser::receiveDataFromServer);
+}

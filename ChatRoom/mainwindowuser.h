@@ -24,10 +24,15 @@ public:
     QString name_user;
     QString accountFriend;
 
+    void returnLogin();
+
 private:
     Ui::MainWindowUser *ui;
 
-private slots:
+signals:
+    void closeWindowUser();
+
+public slots:
     void receiveDataFromMainWindow(QString _ip, QString _account,QString _userName);
     void receiveDataFromServer();
 };

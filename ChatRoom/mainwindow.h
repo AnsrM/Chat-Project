@@ -52,6 +52,8 @@ private:
 private slots:
     void receiveDataFromRegister(QString _username, QString _account,QString _password);
     void openChat();
+    void closeWindowUser();
+    void closeWindowChat();
 };
 
 #endif // MAINWINDOW_H

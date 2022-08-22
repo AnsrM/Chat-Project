@@ -41,6 +41,8 @@ MainWindowUser::MainWindowUser(QWidget *parent) :
     //发送好友账号给服务器，接收数据消息
     connect(client, &QTcpSocket::readyRead, this, &MainWindowUser::receiveDataFromServer);
 
+    //返回登录
+    connect(ui->pushButtonReturn, &QPushButton::clicked, this, &MainWindowUser::returnLogin);
 }
 
 MainWindowUser::~MainWindowUser()
@@ -74,4 +76,10 @@ void MainWindowUser::receiveDataFromServer()
         disconnect(client, &QTcpSocket::readyRead, this, &MainWindowUser::receiveDataFromServer);
         this->hide();
     }
+}
+
+void MainWindowUser::returnLogin()
+{
+    emit closeWindowUser();
+    disconnect(client, &QTcpSocket::readyRead, this, &MainWindowUser::receiveDataFromServer);
 }

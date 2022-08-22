@@ -22,6 +22,13 @@ public:
     QString account_chat;
     QString name_chat;
 
+    void receiveMsg();
+
+    void returnUser();
+
+signals:
+    void closeWindowChat();
+
 private slots:
     void on_ClearButton_clicked();
     void receiveDataFromMainWindowUser(QString _ip, QString _account,QString _userName);

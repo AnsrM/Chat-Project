@@ -9,12 +9,13 @@ MainWindowRegister::MainWindowRegister(QWidget *parent) :
 {
     ui->setupUi(this);
 
-
     //将数据发送给服务器端
     connect(ui->pushButtonSubmit, &QPushButton::clicked, this, &MainWindowRegister::submitData);
 
     //从服务器端接收信号
     connect(client, &QTcpSocket::readyRead, this, &MainWindowRegister::receiveMsgRegister);
+
+    connect(ui->pushButtonReturn, &QPushButton::clicked, this, &MainWindowRegister::closeRegister);
 }
 
 MainWindowRegister::~MainWindowRegister()
