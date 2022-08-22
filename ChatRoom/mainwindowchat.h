@@ -26,7 +26,6 @@ public:
 private slots:
     void on_ClearButton_clicked();
     void receiveDataFromMainWindowUser(QString _ip, QString _account,QString _userName);
-    void openthis();
 
 private:
     Ui::MainWindowChat *ui;

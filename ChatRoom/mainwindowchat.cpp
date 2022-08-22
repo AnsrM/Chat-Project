@@ -11,9 +11,6 @@ MainWindowChat::MainWindowChat(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //接受user发出的信号，打开chat页面
-    connect(message3,SIGNAL(openMainWindowChat()),this,SLOT(openthis()));
-
     //接受user的参数，填写数据
     connect(message2,SIGNAL(sendDataToMainWindowChat(QString,QString,QString)),this,SLOT(receiveDataFromMainWindowUser(QString,QString,QString)));
     ui->text_ip->setText(myIpAddress_chat);
@@ -61,9 +58,4 @@ void MainWindowChat::receiveDataFromMainWindowUser(QString _ip, QString _account
     myIpAddress_chat=_ip;
     account_chat=_account;
     name_chat=_userName;
-}
-
-void MainWindowChat::openthis()
-{
-    this->show();
 }

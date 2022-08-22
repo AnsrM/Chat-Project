@@ -5,8 +5,7 @@
 #include "QMovie"
 
 extern Message *message1;
-Message *message2;
-Message *message3;
+Message *message3 = new Message();
 
 MainWindowUser::MainWindowUser(QWidget *parent) :
     QMainWindow(parent),
@@ -24,16 +23,12 @@ MainWindowUser::MainWindowUser(QWidget *parent) :
     QString hostAdress = "127.0.0.1";
     client->connectToHost(QHostAddress(hostAdress), 8888);
 
-    //接受服务器的数据
+    //接受主窗口的数据
     connect(message1,SIGNAL(sendDataToMainWindowUser(QString,QString,QString)),this,SLOT(receiveDataFromMainWindow(QString,QString,QString)));
-    ui->text_ip->setText(myIpAddress_user);
-    ui->text_id->setText(account_user);
-    ui->text_name->setText(name_user);
 
     //查找好友账号
     connect(ui->FindFriendButton,&QPushButton::clicked,this,[=]()
     {
-        emit message2->sendDataToMainWindowChat(myIpAddress_user,account_user,name_user);
         QString accountFriend=ui->textEdit_friend->toPlainText();
         if(accountFriend.isEmpty())
         {
@@ -55,8 +50,8 @@ MainWindowUser::MainWindowUser(QWidget *parent) :
         }
         else
         {
-            this->hide();
             emit message3->openMainWindowChat();
+            this->hide();
         }
     });
 
@@ -72,4 +67,7 @@ void MainWindowUser::receiveDataFromMainWindow(QString _ip, QString _account,QSt
     myIpAddress_user=_ip;
     account_user=_account;
     name_user=_userName;
+    ui->text_ip->setText(myIpAddress_user);
+    ui->text_id->setText(account_user);
+    ui->text_name->setText(name_user);
 }

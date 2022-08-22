@@ -52,6 +52,7 @@ private:
     Ui::MainWindow *ui;
 private slots:
     void receiveDataFromRegister(QString _username, QString _account,QString _password);
+    void openChat();
 };
 
 #endif // MAINWINDOW_H

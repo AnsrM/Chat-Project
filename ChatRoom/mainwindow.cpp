@@ -2,8 +2,9 @@
 #include "ui_mainwindow.h"
 #include "message.h"
 
-Message *message1;
-
+Message *message1 = new Message();
+Message *message2 = new Message();
+extern Message *message3;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -25,8 +26,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     client = new QTcpSocket(this);
     //暂时随便写的ip和端口
-    QString hostAdress = "192.168.1.106";
-    client->connectToHost(QHostAddress(hostAdress), 8000);
+    QString hostAdress = "127.0.0.1";
+    client->connectToHost(QHostAddress(hostAdress), 8888);
 
     //打开注册页面
     connect(ui->pushButtonRegister, &QPushButton::clicked, this, &MainWindow::openMainWindowRegister);
@@ -36,6 +37,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //接收服务器端信号
     connect(client, &QTcpSocket::readyRead, this, &MainWindow::receiveMsgLogin);
+
+    //接受user发出的信号，打开chat页面
+    connect(message3,SIGNAL(openMainWindowChat()),this,SLOT(openChat()));
 
 }
 
@@ -139,4 +143,10 @@ QString MainWindow::read_ip_address()
     return ip_address;
 }
 
+void MainWindow::openChat()
+{
+    mainWindowChat = new MainWindowChat();
+    mainWindowChat->show();
+    emit message2->sendDataToMainWindowChat(myIpAddress,account,userName);
+}
 
