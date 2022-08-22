@@ -29,6 +29,7 @@ private:
 
 private slots:
     void receiveDataFromMainWindow(QString _ip, QString _account,QString _userName);
+    void receiveDataFromServer();
 };
 
 #endif // MAINWINDOWUSER_H

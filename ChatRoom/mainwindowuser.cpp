@@ -39,22 +39,7 @@ MainWindowUser::MainWindowUser(QWidget *parent) :
     });
 
     //发送好友账号给服务器，接收数据消息
-    connect(client, &QTcpSocket::readyRead, this,[=]()
-    {
-        QString recv(client->readAll());
-        //0:未找到该用户，请重新输入
-        //其他：跳转到chat页面和用户聊天
-        if(recv == '0')
-        {
-            QMessageBox::critical(this, "警告", "未找到该用户！", QMessageBox::Ok);
-            ui->textEdit_friend->setText("");
-        }
-        else
-        {
-            emit message3->openMainWindowChat();
-            this->hide();
-        }
-    });
+    connect(client, &QTcpSocket::readyRead, this, &MainWindowUser::receiveDataFromServer);
 
 }
 
@@ -71,4 +56,22 @@ void MainWindowUser::receiveDataFromMainWindow(QString _ip, QString _account,QSt
     ui->text_ip->setText(myIpAddress_user);
     ui->text_id->setText(account_user);
     ui->text_name->setText(name_user);
+}
+
+void MainWindowUser::receiveDataFromServer()
+{
+    QString recv(client->readAll());
+    //0:未找到该用户，请重新输入
+    //其他：跳转到chat页面和用户聊天
+    if(recv == '0')
+    {
+        QMessageBox::critical(this, "警告", "未找到该用户！", QMessageBox::Ok);
+        ui->textEdit_friend->setText("");
+    }
+    else
+    {
+        emit message3->openMainWindowChat();
+        disconnect(client, &QTcpSocket::readyRead, this, &MainWindowUser::receiveDataFromServer);
+        this->hide();
+    }
 }

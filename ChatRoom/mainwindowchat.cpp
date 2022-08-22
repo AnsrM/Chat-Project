@@ -18,8 +18,7 @@ MainWindowChat::MainWindowChat(QWidget *parent) :
     //接受消息
     connect(client,&QTcpSocket::readyRead,this,[=]()
     {
-        QByteArray recv = client->readAll();
-        QString str=recv;
+        QString str(client->readAll());
         ui->textEdit_receive->append(str+"\n");
     });
 
