@@ -1,16 +1,14 @@
 #include "mainwindowregister.h"
 #include "ui_mainwindowregister.h"
 
+extern QTcpSocket* client;
+
 MainWindowRegister::MainWindowRegister(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindowRegister)
 {
     ui->setupUi(this);
 
-    client = new QTcpSocket(this);
-    //暂时随便写的ip和端口
-    QString hostAdress = "192.168.1.106";
-    client->connectToHost(QHostAddress(hostAdress), 8000);
 
     //将数据发送给服务器端
     connect(ui->pushButtonSubmit, &QPushButton::clicked, this, &MainWindowRegister::submitData);
@@ -41,7 +39,7 @@ void MainWindowRegister::submitData()
 
     //发送格式：用户名|密码
     QString str = userName + "|" + password;
-    client->write(str.toUtf8());
+    client->write(str.toLocal8Bit());
 }
 
 void MainWindowRegister::receiveMsgRegister()

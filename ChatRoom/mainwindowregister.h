@@ -18,8 +18,6 @@ public:
     explicit MainWindowRegister(QWidget *parent = 0);
     ~MainWindowRegister();
 
-    QTcpSocket* client;
-
     //向服务器端发送信息
     void submitData();
 

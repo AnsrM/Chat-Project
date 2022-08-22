@@ -5,6 +5,7 @@
 Message *message1 = new Message();
 Message *message2 = new Message();
 extern Message *message3;
+QTcpSocket* client;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -110,6 +111,8 @@ void MainWindow::receiveMsgLogin()
         userName = recv;
         myIpAddress = read_ip_address();
 
+        disconnect(client, &QTcpSocket::readyRead, this, &MainWindow::receiveMsgLogin);
+
         emit message1->sendDataToMainWindowUser(myIpAddress,account,userName);
         this->hide();
     }
@@ -147,6 +150,7 @@ void MainWindow::openChat()
 {
     mainWindowChat = new MainWindowChat();
     mainWindowChat->show();
+    disconnect(message3,SIGNAL(openMainWindowChat()),this,SLOT(openChat()));
     emit message2->sendDataToMainWindowChat(myIpAddress,account,userName);
 }
 

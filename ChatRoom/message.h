@@ -6,7 +6,7 @@ class Message: public QObject
 {
     Q_OBJECT
 public:
-    Message(){};
+    Message(){}
 signals:
     void sendDataToMainWindowUser(QString myip,QString account,QString userName);
     void sendDataToMainWindowChat(QString myip,QString account,QString userName);

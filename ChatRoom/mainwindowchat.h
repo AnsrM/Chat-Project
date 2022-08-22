@@ -18,7 +18,6 @@ public:
     explicit MainWindowChat(QWidget *parent = 0);
     ~MainWindowChat();
 
-    QTcpSocket* client;
     QString myIpAddress_chat;
     QString account_chat;
     QString name_chat;

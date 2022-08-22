@@ -5,6 +5,7 @@
 #include "QMovie"
 
 extern Message *message1;
+extern QTcpSocket* client;
 Message *message3 = new Message();
 
 MainWindowUser::MainWindowUser(QWidget *parent) :
@@ -18,10 +19,6 @@ MainWindowUser::MainWindowUser(QWidget *parent) :
     ui->touxiang->setMovie(movie);
     movie->start();
 
-    client = new QTcpSocket(this);
-    //暂时随便写的ip和端口
-    QString hostAdress = "127.0.0.1";
-    client->connectToHost(QHostAddress(hostAdress), 8888);
 
     //接受主窗口的数据
     connect(message1,SIGNAL(sendDataToMainWindowUser(QString,QString,QString)),this,SLOT(receiveDataFromMainWindow(QString,QString,QString)));
@@ -34,7 +31,11 @@ MainWindowUser::MainWindowUser(QWidget *parent) :
         {
             QMessageBox::critical(this, "警告", "查找账号为空！", QMessageBox::Ok);
         }
-        client->write(accountFriend.toLocal8Bit());
+        else
+        {
+            client->write(accountFriend.toLocal8Bit());
+        }
+
     });
 
     //发送好友账号给服务器，接收数据消息

@@ -4,6 +4,7 @@
 
 extern Message *message2;
 extern Message *message3;
+extern QTcpSocket* client;
 
 MainWindowChat::MainWindowChat(QWidget *parent) :
     QMainWindow(parent),
@@ -13,20 +14,13 @@ MainWindowChat::MainWindowChat(QWidget *parent) :
 
     //接受user的参数，填写数据
     connect(message2,SIGNAL(sendDataToMainWindowChat(QString,QString,QString)),this,SLOT(receiveDataFromMainWindowUser(QString,QString,QString)));
-    ui->text_ip->setText(myIpAddress_chat);
-    ui->text_id->setText(account_chat);
-    ui->text_name->setText(name_chat);
 
-    client = new QTcpSocket(this);
-    //暂时随便写的ip和端口
-    QString hostAdress = "127.0.0.1";
-    client->connectToHost(QHostAddress(hostAdress), 8888);
     //接受消息
     connect(client,&QTcpSocket::readyRead,this,[=]()
     {
         QByteArray recv = client->readAll();
-        QString str = recv;
-        ui->textBrowser_receive->append(recv);
+        QString str=recv;
+        ui->textEdit_receive->append(str+"\n");
     });
 
     //发送消息
@@ -58,4 +52,7 @@ void MainWindowChat::receiveDataFromMainWindowUser(QString _ip, QString _account
     myIpAddress_chat=_ip;
     account_chat=_account;
     name_chat=_userName;
+    ui->text_ip->setText(myIpAddress_chat);
+    ui->text_id->setText(account_chat);
+    ui->text_name->setText(name_chat);
 }

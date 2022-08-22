@@ -23,7 +23,6 @@ public:
     QString myIpAddress_user;
     QString name_user;
     QString accountFriend;
-    QTcpSocket* client;
 
 private:
     Ui::MainWindowUser *ui;

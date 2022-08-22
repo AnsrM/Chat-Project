@@ -31,7 +31,6 @@ public:
     MainWindowRegister* mainWindowRegister;
     MainWindowChat* mainWindowChat;
     MainWindowUser* mainWindowUser;
-    QTcpSocket* client;
 
     //打开注册页面
     void openMainWindowRegister();
