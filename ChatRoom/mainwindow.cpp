@@ -5,10 +5,22 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+
+    currentDir = QDir::currentPath() + QDir::separator() ;
+
+
     ui->setupUi(this);
 
 //    ui->
     ui->lineEditPassword->setEchoMode(QLineEdit::Password);
+
+    ui->pushButtonRegister->setSizeIncrement(80,40);
+    ui->pushButtonRegister->setIcon(QIcon(":/new/prefix1/registerIconW.png"));
+    ui->pushButtonRegister->setIconSize(QSize(40,40));
+    ui->pushButtonLogin->setSizeIncrement(80,40);
+    ui->pushButtonLogin->setIcon(QIcon(":/new/prefix1/loginIconW.png"));
+    ui->pushButtonLogin->setIconSize(QSize(40,40));
+
 
     //调试部分
     connect(ui->test,&QPushButton::clicked,this,[=]()

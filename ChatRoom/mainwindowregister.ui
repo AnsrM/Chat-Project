@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>注册</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -120,7 +120,7 @@
            </widget>
           </item>
           <item row="4" column="0">
-           <widget class="QPushButton" name="ButtonBackToLogin">
+           <widget class="QPushButton" name="pushButtonBackToLogin">
             <property name="font">
              <font>
               <family>幼圆</family>
@@ -241,7 +241,7 @@ color: rgb(255, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>656</width>
-     <height>30</height>
+     <height>17</height>
     </rect>
    </property>
   </widget>

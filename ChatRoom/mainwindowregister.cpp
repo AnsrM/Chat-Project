@@ -10,6 +10,11 @@ MainWindowRegister::MainWindowRegister(QWidget *parent) :
     ui->lineEditPassword1->setEchoMode(QLineEdit::Password);
     ui->lineEditPassword2->setEchoMode(QLineEdit::Password);
 
+    ui->pushButtonSubmit->setIcon(QIcon(":/new/prefix1/registerIconW.png"));
+    ui->pushButtonSubmit->setIconSize(QSize(40,40));
+    ui->pushButtonBackToLogin->setIcon(QIcon(":/new/prefix1/backIconW.png"));
+    ui->pushButtonBackToLogin->setIconSize(QSize(40,40));
+
     client = new QTcpSocket(this);
     //暂时随便写的ip和端口
     QString hostAdress = "192.168.1.106";
@@ -22,7 +27,7 @@ MainWindowRegister::MainWindowRegister(QWidget *parent) :
     connect(client, &QTcpSocket::readyRead, this, &MainWindowRegister::receiveMsgRegister);
 
     //返回登录页面
-    connect(ui->ButtonBackToLogin, &QPushButton::clicked, this, &MainWindowRegister::BackToLogin);
+    connect(ui->pushButtonBackToLogin, &QPushButton::clicked, this, &MainWindowRegister::BackToLogin);
 }
 
 MainWindowRegister::~MainWindowRegister()
