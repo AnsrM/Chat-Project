@@ -41,6 +41,7 @@ public:
 
     //点击登录
     void login();
+
 private:
     Ui::MainWindow *ui;
 

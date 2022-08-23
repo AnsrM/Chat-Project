@@ -7,9 +7,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+//    ui->
+    ui->lineEditPassword->setEchoMode(QLineEdit::Password);
+
     //调试部分
     connect(ui->test,&QPushButton::clicked,this,[=]()
     {
+        userName = "TEST";
         mainWindowChat = new MainWindowChat();
         mainWindowChat->show();
         this->hide();
@@ -19,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     client = new QTcpSocket(this);
     //暂时随便写的ip和端口
     QString hostAdress = "192.168.1.106";
-    client->connectToHost(QHostAddress(hostAdress), 8000);
+    client->connectToHost(QHostAddress(hostAdress), 50000);
 
     //打开注册页面
     connect(ui->pushButtonRegister, &QPushButton::clicked, this, &MainWindow::openMainWindowRegister);
@@ -60,8 +64,8 @@ void MainWindow::closeMainWindowRegister()
 
 void MainWindow::login()
 {
-    QString account = ui->textEditAccount->toPlainText();
-    QString password = ui->textEditPassword->toPlainText();
+    QString account = ui->lineEditAccount->text();
+    QString password = ui->lineEditPassword->text();
 
     if (account.isEmpty() || password.isEmpty())
     {
@@ -84,13 +88,13 @@ void MainWindow::receiveMsgLogin()
     if (recv == 0)
     {
         QMessageBox::critical(this, "警告", "账号不存在！", QMessageBox::Ok);
-        ui->textEditAccount->setText("");
-        ui->textEditPassword->setText("");
+        ui->lineEditAccount->setText("");
+        ui->lineEditPassword->setText("");
     }
     else if (recv == 1)
     {
         QMessageBox::critical(this, "警告", "密码不正确！", QMessageBox::Ok);
-        ui->textEditPassword->setText("");
+        ui->lineEditPassword->setText("");
     }
     else if (recv == 2)
     {
@@ -109,4 +113,5 @@ void MainWindow::receiveDataFromRegister(QString _username, QString _account, QS
     userName = _username;
     account = _account;
     password = _password;
+    //TODO 是否要加一个将变量自动填入文本框？
 }
