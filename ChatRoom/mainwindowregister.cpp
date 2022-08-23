@@ -29,19 +29,24 @@ void MainWindowRegister::submitData()
     QString userName = ui->textEditUserName->toPlainText();
     QString password = ui->textEditPassword1->toPlainText();
     QString passwordRepeat = ui->textEditPassword2->toPlainText();
-
+   
+    int sys = 0;
     if (userName.isEmpty() || password.isEmpty() || passwordRepeat.isEmpty())
     {
         ui->labelError_3->setText("请将信息输入完整！");
+        sys = 1;
     }
     else if (password != passwordRepeat)
     {
         ui->labelError_3->setText("密码输入不一致！");
+        sys = 1;
     }
 
     //发送格式：用户名|密码
-    QString str = userName + "|" + password;
-    client->write(str.toUtf8());
+    if(!sys){
+        QString str = userName + "|" + password;
+        client->write(str.toUtf8());
+    }
 }
 
 void MainWindowRegister::receiveMsgRegister()
