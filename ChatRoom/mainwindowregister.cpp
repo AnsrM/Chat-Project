@@ -46,6 +46,7 @@ void MainWindowRegister::submitData()
     if(!sys){
         QString str = userName + "|" + password;
         client->write(str.toUtf8());
+        sys = 0;
     }
 }
 
