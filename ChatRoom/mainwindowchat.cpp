@@ -12,6 +12,8 @@ MainWindowChat::MainWindowChat(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    setWindowTitle("Chatting");
+
     //接受user的参数，填写数据
     connect(message2,SIGNAL(sendDataToMainWindowChat(QString,QString,QString)),this,SLOT(receiveDataFromMainWindowUser(QString,QString,QString)));
 
@@ -29,6 +31,7 @@ MainWindowChat::MainWindowChat(QWidget *parent) :
         client->write(str.toLocal8Bit());
 
         ui->textEdit_receive->append("<font color=\"#0000FF\">我: </font>" + str + '\n');
+        ui->textEdit_send->setText("");
     });
 
     connect(ui->pushButtonReturn, &QPushButton::clicked, this, &MainWindowChat::returnUser);

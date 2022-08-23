@@ -13,6 +13,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    setWindowTitle("ChatRoom");
+
     client = new QTcpSocket(this);
     //暂时随便写的ip和端口
     QString hostAdress = read_ip_address();

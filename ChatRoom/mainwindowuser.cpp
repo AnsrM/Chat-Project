@@ -14,6 +14,8 @@ MainWindowUser::MainWindowUser(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    setWindowTitle("用户界面");
+
     //gif动图
     QMovie *movie = new QMovie(":/new/wenzi.gif");
     ui->touxiang->setMovie(movie);

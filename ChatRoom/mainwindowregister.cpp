@@ -9,6 +9,8 @@ MainWindowRegister::MainWindowRegister(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    setWindowTitle("注册");
+
     //将数据发送给服务器端
     connect(ui->pushButtonSubmit, &QPushButton::clicked, this, &MainWindowRegister::submitData);
 
