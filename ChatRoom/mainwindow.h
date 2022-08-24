@@ -9,6 +9,8 @@
 #include <QTcpSocket>
 #include <QHostAddress>
 #include <QMessageBox>
+//#include <QSystemTrayIcon>
+#include <QDir>
 
 namespace Ui {
 class MainWindow;
@@ -25,6 +27,7 @@ public:
     QString userName;
     QString account;
     QString password;
+    QString currentDir;
 
     MainWindowRegister* mainWindowRegister;
     MainWindowChat* mainWindowChat;
@@ -41,6 +44,7 @@ public:
 
     //点击登录
     void login();
+
 private:
     Ui::MainWindow *ui;
 

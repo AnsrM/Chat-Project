@@ -7,6 +7,14 @@ MainWindowRegister::MainWindowRegister(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->lineEditPassword1->setEchoMode(QLineEdit::Password);
+    ui->lineEditPassword2->setEchoMode(QLineEdit::Password);
+
+    ui->pushButtonSubmit->setIcon(QIcon(":/new/prefix1/registerIconW.png"));
+    ui->pushButtonSubmit->setIconSize(QSize(40,40));
+    ui->pushButtonBackToLogin->setIcon(QIcon(":/new/prefix1/backIconW.png"));
+    ui->pushButtonBackToLogin->setIconSize(QSize(40,40));
+
     client = new QTcpSocket(this);
     //暂时随便写的ip和端口
     QString hostAdress = "192.168.1.106";
@@ -17,6 +25,9 @@ MainWindowRegister::MainWindowRegister(QWidget *parent) :
 
     //从服务器端接收信号
     connect(client, &QTcpSocket::readyRead, this, &MainWindowRegister::receiveMsgRegister);
+
+    //返回登录页面
+    connect(ui->pushButtonBackToLogin, &QPushButton::clicked, this, &MainWindowRegister::BackToLogin);
 }
 
 MainWindowRegister::~MainWindowRegister()
@@ -24,24 +35,39 @@ MainWindowRegister::~MainWindowRegister()
     delete ui;
 }
 
+void MainWindowRegister::BackToLogin()
+{
+    emit closeRegister();
+}
+
+
 void MainWindowRegister::submitData()
 {
-    QString userName = ui->textEditUserName->toPlainText();
-    QString password = ui->textEditPassword1->toPlainText();
-    QString passwordRepeat = ui->textEditPassword2->toPlainText();
-
+    QString userName = ui->lineEditUserName->text();
+    QString password = ui->lineEditPassword1->text();
+    QString passwordRepeat = ui->lineEditPassword2->text();
+//    QString userName = ui->textEditUserName->toPlainText();
+//    QString password = ui->textEditPassword1->toPlainText();
+//    QString passwordRepeat = ui->textEditPassword2->toPlainText();
+   
+    int sys = 0;
     if (userName.isEmpty() || password.isEmpty() || passwordRepeat.isEmpty())
     {
-        ui->labelError_3->setText("请将信息输入完整！");
+        ui->labelError_3->setText("请输入用户名与密码！");
+        sys = 1;
     }
     else if (password != passwordRepeat)
     {
-        ui->labelError_3->setText("密码输入不一致！");
+        ui->labelError_3->setText("两次密码输入不一致！");
+        sys = 1;
     }
 
     //发送格式：用户名|密码
-    QString str = userName + "|" + password;
-    client->write(str.toUtf8());
+    if(!sys){
+        QString str = userName + "|" + password;
+        client->write(str.toUtf8());
+        sys = 0;
+    }
 }
 
 void MainWindowRegister::receiveMsgRegister()
@@ -57,7 +83,8 @@ void MainWindowRegister::receiveMsgRegister()
     else
     {
         QMessageBox::critical(this, "恭喜", "注册成功！", QMessageBox::Ok);
-        emit sendDataToMainWindow(ui->textEditUserName->toPlainText(), recv, ui->textEditPassword1->toPlainText());
+//        emit sendDataToMainWindow(ui->textEditUserName->toPlainText(), recv, ui->textEditPassword1->toPlainText());
+        emit sendDataToMainWindow(ui->lineEditUserName->text(), recv, ui->lineEditPassword1->text());
         emit closeRegister();
     }
 }

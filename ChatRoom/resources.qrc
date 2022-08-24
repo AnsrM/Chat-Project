@@ -2,4 +2,7 @@
     <qresource prefix="/new">
         <file>challenger.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>res/style.css</file>
+    </qresource>
 </RCC>

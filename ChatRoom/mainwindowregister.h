@@ -26,6 +26,9 @@ public:
     //向服务器端接收信息
     void receiveMsgRegister();
 
+    //返回登陆页面
+    void BackToLogin();
+
 private:
     Ui::MainWindowRegister *ui;
 

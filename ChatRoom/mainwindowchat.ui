@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>聊天</string>
   </property>
   <widget class="QTextBrowser" name="textBrowser_receive">
    <property name="geometry">
@@ -21,6 +21,11 @@
      <width>441</width>
      <height>331</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>宋体</family>
+    </font>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -109,6 +114,15 @@
      <width>93</width>
      <height>28</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>幼圆</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.670455, y1:1, x2:0.443, y2:0, stop:0.3125 rgba(0, 94, 255, 255), stop:1 rgba(131, 189, 255, 255));
+color: rgb(249, 249, 249);</string>
    </property>
    <property name="text">
     <string>发送</string>
