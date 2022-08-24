@@ -40,12 +40,5 @@ FORMS    += mainwindow.ui \
     mainwindowchat.ui \
     mainwindowuser.ui
 
-
 RESOURCES += \
-    resources.qrc \
-    icon.qrc
-
-DISTFILES += \
-    logo.rc
-
-RC_FILE += logo.rc
+    resources.qrc

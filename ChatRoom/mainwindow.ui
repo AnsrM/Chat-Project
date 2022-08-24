@@ -11,18 +11,12 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>登录</string>
+   <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
      <widget class="QPushButton" name="test">
-      <property name="styleSheet">
-       <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));
-border-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));
-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 255));
-</string>
-      </property>
       <property name="text">
        <string>测试</string>
       </property>
@@ -70,15 +64,17 @@ color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(0, 0, 0, 
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEditAccount">
+        <widget class="QTextEdit" name="textEditAccount">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
          <property name="font">
           <font>
-           <family>Arial</family>
            <pointsize>16</pointsize>
           </font>
-         </property>
-         <property name="text">
-          <string/>
          </property>
         </widget>
        </item>
@@ -97,9 +93,9 @@ color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(0, 0, 0, 
        </item>
       </layout>
       <zorder>labelAccount</zorder>
+      <zorder>textEditAccount</zorder>
       <zorder>horizontalSpacer</zorder>
       <zorder>horizontalSpacer_2</zorder>
-      <zorder>lineEditAccount</zorder>
      </widget>
     </item>
     <item>
@@ -131,15 +127,17 @@ color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(0, 0, 0, 
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEditPassword">
+        <widget class="QTextEdit" name="textEditPassword">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
          <property name="font">
           <font>
-           <family>Arial</family>
            <pointsize>16</pointsize>
           </font>
-         </property>
-         <property name="text">
-          <string/>
          </property>
         </widget>
        </item>
@@ -177,33 +175,10 @@ color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(0, 0, 0, 
        </item>
        <item>
         <widget class="QPushButton" name="pushButtonLogin">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>100</width>
-           <height>45</height>
-          </size>
-         </property>
-         <property name="baseSize">
-          <size>
-           <width>100</width>
-           <height>50</height>
-          </size>
-         </property>
          <property name="font">
           <font>
-           <family>幼圆</family>
            <pointsize>16</pointsize>
           </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:pad, x1:0.670455, y1:1, x2:0.443, y2:0, stop:0.3125 rgba(0, 94, 255, 255), stop:1 rgba(131, 189, 255, 255));
-color: rgb(249, 249, 249);</string>
          </property>
          <property name="text">
           <string>登录</string>
@@ -211,47 +186,9 @@ color: rgb(249, 249, 249);</string>
         </widget>
        </item>
        <item>
-        <spacer name="horizontalSpacer_9">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>10</width>
-           <height>5</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
         <widget class="QPushButton" name="pushButtonRegister">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>100</width>
-           <height>45</height>
-          </size>
-         </property>
-         <property name="sizeIncrement">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="baseSize">
-          <size>
-           <width>100</width>
-           <height>50</height>
-          </size>
-         </property>
          <property name="font">
           <font>
-           <family>幼圆</family>
            <pointsize>16</pointsize>
           </font>
          </property>
@@ -278,14 +215,6 @@ color: rgb(249, 249, 249);</string>
       <zorder>pushButtonLogin</zorder>
       <zorder>horizontalSpacer_5</zorder>
       <zorder>horizontalSpacer_6</zorder>
-      <zorder>horizontalSpacer_9</zorder>
-     </widget>
-    </item>
-    <item>
-     <widget class="Line" name="line">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
      </widget>
     </item>
     <item>
@@ -306,43 +235,25 @@ color: rgb(249, 249, 249);</string>
        </item>
        <item>
         <widget class="QLabel" name="labelError">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
          <property name="minimumSize">
           <size>
-           <width>400</width>
-           <height>40</height>
+           <width>0</width>
+           <height>20</height>
           </size>
          </property>
          <property name="font">
           <font>
-           <family>宋体</family>
-           <pointsize>14</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
+           <pointsize>12</pointsize>
           </font>
          </property>
          <property name="acceptDrops">
           <bool>false</bool>
          </property>
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
          <property name="autoFillBackground">
           <bool>false</bool>
          </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(255, 0, 0);</string>
-         </property>
          <property name="text">
           <string/>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -382,7 +293,6 @@ color: rgb(249, 249, 249);</string>
    <zorder>verticalSpacer</zorder>
    <zorder>verticalSpacer_2</zorder>
    <zorder>widget_4</zorder>
-   <zorder>line</zorder>
    <zorder>test</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -391,7 +301,7 @@ color: rgb(249, 249, 249);</string>
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>17</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
