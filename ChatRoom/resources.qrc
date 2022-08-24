@@ -4,4 +4,7 @@
         <file>igang.png</file>
         <file>wenzi.gif</file>
     </qresource>
+    <qresource prefix="/">
+        <file>res/style.css</file>
+    </qresource>
 </RCC>
