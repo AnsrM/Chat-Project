@@ -17,8 +17,13 @@ MainWindow::MainWindow(QWidget *parent) :
     setWindowTitle("ChatRoom");
 
     client = new QTcpSocket(this);
+<<<<<<< Updated upstream
     //暂时随便写的ip和端口
 <<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
     QString hostAdress = read_ip_address();
     client->connectToHost(QHostAddress(hostAdress), 8888);
 =======
