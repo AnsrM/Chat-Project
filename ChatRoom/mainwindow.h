@@ -60,6 +60,15 @@ public:
     //更改样式
     void changeStyle();
 
+    //保存css选择
+    void saveCssChoice(int index);
+
+    //读取css选择
+    void setCssChoice();
+
+    //重启
+    void remake();
+
 private:
     Ui::MainWindow *ui;
 private slots:

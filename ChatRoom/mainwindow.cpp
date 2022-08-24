@@ -3,6 +3,7 @@
 #include "message.h"
 #include <cstring>
 #include <QApplication>
+#include <QProcess>
 Message *message1 = new Message();
 Message *message2 = new Message();
 extern Message *message3;
@@ -46,6 +47,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //读取账号密码
     readInfo();
+
+    setCssChoice();
 }
 MainWindow::~MainWindow()
 {
@@ -286,21 +289,65 @@ void MainWindow::readInfo()
 
 void MainWindow::changeStyle()
 {
-    QFile styleSheet;
+    QMessageBox msgBoxChangeStyle(QMessageBox::Question, "更换风格", "确定要更换吗？");
+    msgBoxChangeStyle.resize(200, 200);
 
-    switch(ui->comboBox->currentIndex())
+    QImage *img=new QImage;
+
+    switch (ui->comboBox->currentIndex())
     {
     case 0:
-        styleSheet.setFileName(":/xxx.css");
+        img->load(":/new/fengnv.JPG");//这个图片用于测试
+        break;
     case 1:
-        styleSheet.setFileName(":/xxx.css");
+        img->load(":/new/fengnv.JPG");
+        break;
     case 2:
-        styleSheet.setFileName(":/xxx.css");
+        img->load(":/new/fengnv.JPG");
+        break;
     }
 
-    /*if(styleSheet.open(QFile::ReadOnly)) {
-        QString styleString = styleSheet.readAll();
-        styleSheet.close();
-        static_cast<QApplication*>(QApplication::instance())->setStyleSheet(styleString);
-    }*/
+    QPixmap pic = QPixmap::fromImage(*img).scaled(msgBoxChangeStyle.size(),Qt::KeepAspectRatio);
+    msgBoxChangeStyle.setIconPixmap(pic);
+
+    QPushButton *okbtn = new QPushButton("确定");
+    QPushButton *cancelbtn = new QPushButton("取消");
+    msgBoxChangeStyle.addButton(okbtn, QMessageBox::AcceptRole);
+    msgBoxChangeStyle.addButton(cancelbtn, QMessageBox::RejectRole);
+
+    msgBoxChangeStyle.exec();
+
+    if (msgBoxChangeStyle.clickedButton() == okbtn)
+    {
+        saveCssChoice(ui->comboBox->currentIndex());
+        msgBoxChangeStyle.close();
+        remake();
+    }
+}
+
+void MainWindow::saveCssChoice(int index)
+{
+    QString path = "./css.ini";
+    QSettings *config = new QSettings(path, QSettings::IniFormat);
+    config -> beginGroup("config");
+    config -> setValue("css", index);
+    config -> endGroup();
+
+    qDebug() << index;
+}
+
+void MainWindow::setCssChoice()
+{
+    QString path = "./css.ini";
+    QSettings *config = new QSettings(path, QSettings::IniFormat);
+
+    int cssChoice = config -> value(QString("config/") + "css").toInt();
+
+    ui->comboBox->setCurrentIndex(cssChoice);
+}
+
+void MainWindow::remake()
+{
+    qApp->closeAllWindows();
+    QProcess::startDetached(qApp->applicationFilePath(), QStringList());
 }
