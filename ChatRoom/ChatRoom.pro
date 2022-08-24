@@ -42,3 +42,10 @@ FORMS    += mainwindow.ui \
 
 RESOURCES += \
     resources.qrc
+<<<<<<< Updated upstream
+=======
+
+DISTFILES += \
+    user \
+    user.ini
+>>>>>>> Stashed changes

@@ -52,30 +52,12 @@
           </font>
          </property>
          <property name="text">
-          <string>ID：</string>
+          <string>昵称：</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="textEditUserName">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>16</pointsize>
-          </font>
-         </property>
-        </widget>
+        <widget class="QLineEdit" name="lineEditUserName"/>
        </item>
        <item>
         <spacer name="horizontalSpacer_38">
@@ -122,23 +104,9 @@
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="textEditPassword1">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>16</pointsize>
-          </font>
+        <widget class="QLineEdit" name="lineEditPassword">
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
          </property>
         </widget>
        </item>
@@ -187,23 +155,9 @@
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="textEditPassword2">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>16</pointsize>
-          </font>
+        <widget class="QLineEdit" name="lineEditPasswordRepeat">
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
          </property>
         </widget>
        </item>
@@ -280,6 +234,7 @@
      </widget>
     </item>
     <item>
+<<<<<<< Updated upstream
      <widget class="QWidget" name="widget_4" native="true">
       <property name="minimumSize">
        <size>
@@ -336,6 +291,8 @@
      </widget>
     </item>
     <item>
+=======
+>>>>>>> Stashed changes
      <spacer name="verticalSpacer_2">
       <property name="orientation">
        <enum>Qt::Vertical</enum>

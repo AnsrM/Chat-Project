@@ -5,6 +5,9 @@
 #include <QTcpSocket>
 #include <QHostAddress>
 #include <QMessageBox>
+#include <QTime>
+#include <QTimer>
+#include <qdatetime.h>
 
 namespace Ui {
 class MainWindowChat;
@@ -32,6 +35,10 @@ signals:
 private slots:
     void on_ClearButton_clicked();
     void receiveDataFromMainWindowUser(QString _ip, QString _account,QString _userName);
+<<<<<<< Updated upstream
+=======
+    void timerUpdata(void);
+>>>>>>> Stashed changes
 
 private:
     Ui::MainWindowChat *ui;

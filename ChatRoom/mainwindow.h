@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QByteArray>
 #include <qpushbutton.h>
 #include <mainwindowregister.h>
 #include <mainwindowchat.h>
@@ -10,6 +11,7 @@
 #include <QHostAddress>
 #include <QMessageBox>
 #include <QNetworkInterface>
+#include <QSettings.h>
 
 namespace Ui {
 class MainWindow;
@@ -27,6 +29,7 @@ public:
     QString account;
     QString password;
     QString myIpAddress;
+    QString check_id(int choice,char* name,char* password);
 
     MainWindowRegister* mainWindowRegister;
     MainWindowChat* mainWindowChat;
@@ -46,6 +49,12 @@ public:
 
     //点击登录
     void login();
+
+    //保存账号密码
+    void saveInfo(QString _account, QString _password);
+
+    //读取账号密码
+    void readInfo();
 
 private:
     Ui::MainWindow *ui;

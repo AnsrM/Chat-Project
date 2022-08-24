@@ -57,6 +57,7 @@
         </widget>
        </item>
        <item>
+<<<<<<< Updated upstream
         <widget class="QTextEdit" name="textEditAccount">
          <property name="minimumSize">
           <size>
@@ -70,6 +71,9 @@
           </font>
          </property>
         </widget>
+=======
+        <widget class="QLineEdit" name="lineEditId"/>
+>>>>>>> Stashed changes
        </item>
        <item>
         <spacer name="horizontalSpacer_2">
@@ -89,6 +93,10 @@
       <zorder>textEditAccount</zorder>
       <zorder>horizontalSpacer</zorder>
       <zorder>horizontalSpacer_2</zorder>
+<<<<<<< Updated upstream
+=======
+      <zorder>lineEditId</zorder>
+>>>>>>> Stashed changes
      </widget>
     </item>
     <item>
@@ -120,6 +128,7 @@
         </widget>
        </item>
        <item>
+<<<<<<< Updated upstream
         <widget class="QTextEdit" name="textEditPassword">
          <property name="minimumSize">
           <size>
@@ -131,6 +140,11 @@
           <font>
            <pointsize>16</pointsize>
           </font>
+=======
+        <widget class="QLineEdit" name="lineEditPassword">
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+>>>>>>> Stashed changes
          </property>
         </widget>
        </item>
@@ -167,6 +181,33 @@
         </spacer>
        </item>
        <item>
+<<<<<<< Updated upstream
+        <widget class="QPushButton" name="pushButtonLogin">
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+=======
+        <widget class="QCheckBox" name="checkBoxSave">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+>>>>>>> Stashed changes
+          </font>
+         </property>
+         <property name="text">
+          <string>保存密码</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+<<<<<<< Updated upstream
+=======
         <widget class="QPushButton" name="pushButtonLogin">
          <property name="font">
           <font>
@@ -179,6 +220,7 @@
         </widget>
        </item>
        <item>
+>>>>>>> Stashed changes
         <widget class="QPushButton" name="pushButtonRegister">
          <property name="font">
           <font>
@@ -208,6 +250,7 @@
       <zorder>pushButtonLogin</zorder>
       <zorder>horizontalSpacer_5</zorder>
       <zorder>horizontalSpacer_6</zorder>
+<<<<<<< Updated upstream
      </widget>
     </item>
     <item>
@@ -264,6 +307,9 @@
         </spacer>
        </item>
       </layout>
+=======
+      <zorder>checkBoxSave</zorder>
+>>>>>>> Stashed changes
      </widget>
     </item>
     <item>
@@ -285,7 +331,10 @@
    <zorder>widget_3</zorder>
    <zorder>verticalSpacer</zorder>
    <zorder>verticalSpacer_2</zorder>
+<<<<<<< Updated upstream
    <zorder>widget_4</zorder>
+=======
+>>>>>>> Stashed changes
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
