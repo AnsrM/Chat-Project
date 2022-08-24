@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     client = new QTcpSocket(this);
 
-    QString hostAdress = "192.168.1.106";
+    QString hostAdress = "127.0.0.1";
     qDebug()<<"your:"<<hostAdress;
     client->connectToHost(QHostAddress(hostAdress), 50000);
 

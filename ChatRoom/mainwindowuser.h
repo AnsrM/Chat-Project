@@ -23,6 +23,7 @@ public:
     QString myIpAddress_user;
     QString name_user;
     QString accountFriend;
+    int changes=0;
 
     void returnLogin();
 
@@ -35,6 +36,8 @@ signals:
 public slots:
     void receiveDataFromMainWindow(QString _ip, QString _account,QString _userName);
     void receiveDataFromServer();
+private slots:
+    void on_pushButton_change_clicked();
 };
 
 #endif // MAINWINDOWUSER_H

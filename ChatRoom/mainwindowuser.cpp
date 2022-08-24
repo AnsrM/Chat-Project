@@ -82,3 +82,37 @@ void MainWindowUser::returnLogin()
 
 
 
+
+void MainWindowUser::on_pushButton_change_clicked()
+{
+    changes++;
+    changes = changes%7;
+    if (changes == 0)
+    {
+        ui->pushButton_touxiang->setIcon(QIcon(":/new/wanhao.jpg"));
+    }
+    else if (changes == 1)
+    {
+        ui->pushButton_touxiang->setIcon(QIcon(":/new/fengnv.jpg"));
+    }
+    else if (changes == 2)
+    {
+        ui->pushButton_touxiang->setIcon(QIcon(":/new/foyege.jpg"));
+    }
+    else if (changes == 3)
+    {
+        ui->pushButton_touxiang->setIcon(QIcon(":/new/lulu.jpg"));
+    }
+    else if (changes == 4)
+    {
+        ui->pushButton_touxiang->setIcon(QIcon(":/new/maomi.jpg"));
+    }
+    else if (changes == 5)
+    {
+        ui->pushButton_touxiang->setIcon(QIcon(":/new/nandao.jpg"));
+    }
+    else
+    {
+        ui->pushButton_touxiang->setIcon(QIcon(":/new/yasuo.jpg"));
+    }
+}
