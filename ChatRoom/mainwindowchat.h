@@ -36,6 +36,7 @@ private slots:
     void on_ClearButton_clicked();
     void receiveDataFromMainWindowUser(QString _ip, QString _account,QString _userName);
     void timerUpdata(void);
+    void changeIcon_Chat(int m);
 
 private:
     Ui::MainWindowChat *ui;

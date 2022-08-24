@@ -74,6 +74,7 @@ void MainWindowUser::receiveDataFromServer()
     else
     {
         emit message3->openMainWindowChat();
+        emit message3->sendChangesToChat(changes);
         disconnect(client, &QTcpSocket::readyRead, this, &MainWindowUser::receiveDataFromServer);
         this->hide();
     }

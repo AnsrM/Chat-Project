@@ -11,6 +11,7 @@ signals:
     void sendDataToMainWindowUser(QString myip,QString account,QString userName);
     void sendDataToMainWindowChat(QString myip,QString account,QString userName);
     void openMainWindowChat();
+    void sendChangesToChat(int n);
 };
 
 #endif // MESSAGE_H

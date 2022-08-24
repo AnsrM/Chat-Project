@@ -16,6 +16,9 @@ MainWindowChat::MainWindowChat(QWidget *parent) :
 
     setWindowTitle("Chatting");
 
+    //更换头像
+    connect(message3,SIGNAL(sendChangesToChat(int)),this,SLOT(changeIcon_Chat(int)));
+
     //接受user的参数，填写数据
     connect(message2,SIGNAL(sendDataToMainWindowChat(QString,QString,QString)),this,SLOT(receiveDataFromMainWindowUser(QString,QString,QString)));
 
@@ -140,4 +143,39 @@ void MainWindowChat::timerUpdata()
     QDateTime time = QDateTime::currentDateTime();
     QString str = time.toString("yyyy-MM-dd hh:mm:ss");
     ui->labelTime->setText(str);
+}
+
+void MainWindowChat::changeIcon_Chat(int m)
+{
+    int changes = m;
+
+    QImage *img=new QImage;
+
+    switch (changes) {
+    case 0:
+        img->load(":/new/fengnv.JPG");
+        break;
+    case 1:
+        img->load(":/new/foyege.JPG");
+        break;
+    case 2:
+        img->load(":/new/lulu.JPG");
+        break;
+    case 3:
+        img->load(":/new/maomi.JPG");
+        break;
+    case 4:
+        img->load(":/new/wanhao.JPG");
+        break;
+    case 5:
+        img->load(":/new/nandao.JPG");
+        break;
+    default:
+        img->load(":/new/yasuo.JPG");
+        break;
+    }
+
+    QPixmap icon = QPixmap::fromImage(*img).scaled(ui->labelIcon->size(),Qt::KeepAspectRatio);
+
+    ui->labelIcon->setPixmap(icon);
 }

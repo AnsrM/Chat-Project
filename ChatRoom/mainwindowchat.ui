@@ -59,7 +59,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/new/igang.png);</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
