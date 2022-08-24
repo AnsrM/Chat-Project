@@ -57,23 +57,7 @@
         </widget>
        </item>
        <item>
-<<<<<<< Updated upstream
-        <widget class="QTextEdit" name="textEditAccount">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>16</pointsize>
-          </font>
-         </property>
-        </widget>
-=======
         <widget class="QLineEdit" name="lineEditId"/>
->>>>>>> Stashed changes
        </item>
        <item>
         <spacer name="horizontalSpacer_2">
@@ -93,10 +77,7 @@
       <zorder>textEditAccount</zorder>
       <zorder>horizontalSpacer</zorder>
       <zorder>horizontalSpacer_2</zorder>
-<<<<<<< Updated upstream
-=======
       <zorder>lineEditId</zorder>
->>>>>>> Stashed changes
      </widget>
     </item>
     <item>
@@ -128,23 +109,9 @@
         </widget>
        </item>
        <item>
-<<<<<<< Updated upstream
-        <widget class="QTextEdit" name="textEditPassword">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>16</pointsize>
-          </font>
-=======
         <widget class="QLineEdit" name="lineEditPassword">
          <property name="echoMode">
           <enum>QLineEdit::Password</enum>
->>>>>>> Stashed changes
          </property>
         </widget>
        </item>
@@ -181,12 +148,6 @@
         </spacer>
        </item>
        <item>
-<<<<<<< Updated upstream
-        <widget class="QPushButton" name="pushButtonLogin">
-         <property name="font">
-          <font>
-           <pointsize>16</pointsize>
-=======
         <widget class="QCheckBox" name="checkBoxSave">
          <property name="minimumSize">
           <size>
@@ -197,7 +158,6 @@
          <property name="font">
           <font>
            <pointsize>12</pointsize>
->>>>>>> Stashed changes
           </font>
          </property>
          <property name="text">
@@ -206,8 +166,6 @@
         </widget>
        </item>
        <item>
-<<<<<<< Updated upstream
-=======
         <widget class="QPushButton" name="pushButtonLogin">
          <property name="font">
           <font>
@@ -220,7 +178,6 @@
         </widget>
        </item>
        <item>
->>>>>>> Stashed changes
         <widget class="QPushButton" name="pushButtonRegister">
          <property name="font">
           <font>
@@ -250,66 +207,7 @@
       <zorder>pushButtonLogin</zorder>
       <zorder>horizontalSpacer_5</zorder>
       <zorder>horizontalSpacer_6</zorder>
-<<<<<<< Updated upstream
-     </widget>
-    </item>
-    <item>
-     <widget class="QWidget" name="widget_4" native="true">
-      <layout class="QHBoxLayout" name="horizontalLayout_5">
-       <item>
-        <spacer name="horizontalSpacer_7">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QLabel" name="labelError">
-         <property name="minimumSize">
-          <size>
-           <width>200</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="acceptDrops">
-          <bool>false</bool>
-         </property>
-         <property name="autoFillBackground">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer_8">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-=======
       <zorder>checkBoxSave</zorder>
->>>>>>> Stashed changes
      </widget>
     </item>
     <item>
@@ -331,10 +229,6 @@
    <zorder>widget_3</zorder>
    <zorder>verticalSpacer</zorder>
    <zorder>verticalSpacer_2</zorder>
-<<<<<<< Updated upstream
-   <zorder>widget_4</zorder>
-=======
->>>>>>> Stashed changes
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

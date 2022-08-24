@@ -17,12 +17,8 @@ class MainWindowRegister : public QMainWindow
 public:
     explicit MainWindowRegister(QWidget *parent = 0);
     ~MainWindowRegister();
-
-<<<<<<< Updated upstream
-=======
     QString check_id(int choice,char* name,char* password);
 
->>>>>>> Stashed changes
     //向服务器端发送信息
     void submitData();
 

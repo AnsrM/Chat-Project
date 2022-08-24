@@ -17,20 +17,10 @@ MainWindow::MainWindow(QWidget *parent) :
     setWindowTitle("ChatRoom");
 
     client = new QTcpSocket(this);
-<<<<<<< Updated upstream
-    //暂时随便写的ip和端口
-<<<<<<< Updated upstream
-=======
 
-
->>>>>>> Stashed changes
-    QString hostAdress = read_ip_address();
-    client->connectToHost(QHostAddress(hostAdress), 8888);
-=======
     QString hostAdress = "192.168.1.106";
     qDebug()<<"your:"<<hostAdress;
     client->connectToHost(QHostAddress(hostAdress), 50000);
->>>>>>> Stashed changes
 
     //打开注册页面
     connect(ui->pushButtonRegister, &QPushButton::clicked, this, &MainWindow::openMainWindowRegister);
@@ -43,9 +33,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //接受user发出的信号，打开chat页面
     connect(message3,SIGNAL(openMainWindowChat()),this,SLOT(openChat()));
-<<<<<<< Updated upstream
-}
-=======
 
     //限制输入
     QRegExp rxId("^[0-9]+$");
@@ -53,7 +40,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QRegExp rxPassword("^[A-Za-z0-9]+$");
     ui->lineEditPassword->setValidator(new QRegExpValidator(rxPassword));
->>>>>>> Stashed changes
 
     //读取账号密码
     readInfo();
@@ -189,15 +175,6 @@ void MainWindow::receiveMsgLogin()
                 userName = buf;
                 myIpAddress = read_ip_address();
 
-<<<<<<< Updated upstream
-        //接收user发出的信号，关闭user
-        connect(mainWindowUser, &MainWindowUser::closeWindowUser, this, &MainWindow::closeWindowUser);
-
-        disconnect(client, &QTcpSocket::readyRead, this, &MainWindow::receiveMsgLogin);
-
-        emit message1->sendDataToMainWindowUser(myIpAddress,account,userName);
-        this->hide();
-=======
                 //自动保存
                 if (ui->checkBoxSave->isChecked())
                 {
@@ -216,7 +193,6 @@ void MainWindow::receiveMsgLogin()
                 emit message1->sendDataToMainWindowUser(myIpAddress,account,userName);
                 this->hide();
         }
->>>>>>> Stashed changes
     }
 
     //0: 没有此账号，弹框，清除账号密码
@@ -273,8 +249,6 @@ void MainWindow::closeWindowChat()
     mainWindowUser->show();
     connect(client, &QTcpSocket::readyRead, mainWindowUser, &MainWindowUser::receiveDataFromServer);
 }
-<<<<<<< Updated upstream
-=======
 
 void MainWindow::saveInfo(QString _account, QString _password)
 {
@@ -306,4 +280,3 @@ void MainWindow::readInfo()
     QByteArray passwordB64 = QByteArray::fromBase64(passwordSec.toLocal8Bit());
     ui->lineEditPassword->setText(QString::fromLocal8Bit(passwordB64));
 }
->>>>>>> Stashed changes

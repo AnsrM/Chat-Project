@@ -14,11 +14,6 @@
    <string>Form</string>
   </property>
   <widget class="QPushButton" name="SendButton">
-<<<<<<< Updated upstream
-   <property name="geometry">
-    <rect>
-     <x>370</x>
-=======
    <property name="geometry">
     <rect>
      <x>370</x>
@@ -35,52 +30,12 @@
    <property name="geometry">
     <rect>
      <x>270</x>
->>>>>>> Stashed changes
      <y>520</y>
      <width>93</width>
      <height>28</height>
     </rect>
    </property>
    <property name="text">
-<<<<<<< Updated upstream
-    <string>发送</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="ClearButton">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>520</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>清空</string>
-   </property>
-  </widget>
-  <widget class="QTextEdit" name="textEdit_send">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>400</y>
-     <width>441</width>
-     <height>111</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>490</x>
-     <y>80</y>
-     <width>231</width>
-     <height>211</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border-image: url(:/new/igang.png);</string>
-=======
     <string>清空</string>
    </property>
   </widget>
@@ -131,7 +86,6 @@
      <width>141</width>
      <height>31</height>
     </rect>
->>>>>>> Stashed changes
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
@@ -150,92 +104,7 @@
     </item>
    </layout>
   </widget>
-<<<<<<< Updated upstream
-  <widget class="QTextEdit" name="textEdit_receive">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>60</y>
-     <width>441</width>
-     <height>321</height>
-    </rect>
-   </property>
-   <property name="readOnly">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QWidget" name="widget" native="true">
-   <property name="geometry">
-    <rect>
-     <x>510</x>
-     <y>390</y>
-=======
-  <widget class="QWidget" name="widget_2" native="true">
-   <property name="geometry">
-    <rect>
-     <x>510</x>
-     <y>430</y>
-     <width>141</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
-    <item>
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;我的账号:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="text_id">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="widget_3" native="true">
-   <property name="geometry">
-    <rect>
-     <x>510</x>
-     <y>470</y>
->>>>>>> Stashed changes
-     <width>141</width>
-     <height>31</height>
-    </rect>
-   </property>
-<<<<<<< Updated upstream
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;我的IP:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-=======
-   <layout class="QHBoxLayout" name="horizontalLayout_3">
-    <item>
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;我的昵称:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
->>>>>>> Stashed changes
-      </property>
-     </widget>
-    </item>
-    <item>
-<<<<<<< Updated upstream
-     <widget class="QLabel" name="text_ip">
-=======
-     <widget class="QLabel" name="text_name">
->>>>>>> Stashed changes
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-<<<<<<< Updated upstream
+
   <widget class="QWidget" name="widget_2" native="true">
    <property name="geometry">
     <rect>
@@ -271,6 +140,7 @@
      <height>31</height>
     </rect>
    </property>
+
    <layout class="QHBoxLayout" name="horizontalLayout_3">
     <item>
      <widget class="QLabel" name="label_3">
@@ -288,15 +158,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="pushButtonReturn">
-   <property name="geometry">
-    <rect>
-     <x>620</x>
-     <y>520</y>
-     <width>81</width>
-     <height>31</height>
-    </rect>
-=======
   <widget class="QPushButton" name="pushButtonReturn">
    <property name="geometry">
     <rect>
@@ -323,7 +184,6 @@
     <font>
      <pointsize>12</pointsize>
     </font>
->>>>>>> Stashed changes
    </property>
    <property name="text">
     <string>退出</string>

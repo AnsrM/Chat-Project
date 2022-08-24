@@ -1,11 +1,8 @@
 #include "mainwindowchat.h"
 #include "ui_mainwindowchat.h"
 #include "message.h"
-<<<<<<< Updated upstream
-=======
 #include <ctime>
 #include <cstring>
->>>>>>> Stashed changes
 
 extern Message *message2;
 extern Message *message3;
@@ -33,15 +30,6 @@ MainWindowChat::MainWindowChat(QWidget *parent) :
         {
             QMessageBox::critical(this, "警告", "发送消息为空！", QMessageBox::Ok);
         }
-<<<<<<< Updated upstream
-        client->write(str.toLocal8Bit());
-
-        ui->textEdit_receive->append("<font color=\"#0000FF\">我: </font>" + str + '\n');
-        ui->textEdit_send->setText("");
-    });
-
-    connect(ui->pushButtonReturn, &QPushButton::clicked, this, &MainWindowChat::returnUser);
-=======
         else if(str.length()>128){
             QMessageBox::critical(this, "警告", "超出输入上限（128）！", QMessageBox::Ok);
         }
@@ -88,7 +76,6 @@ MainWindowChat::MainWindowChat(QWidget *parent) :
     QTimer *timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(timerUpdata()));
     timer->start(1000);
->>>>>>> Stashed changes
 }
 
 MainWindowChat::~MainWindowChat()
@@ -115,9 +102,6 @@ void MainWindowChat::receiveDataFromMainWindowUser(QString _ip, QString _account
 void MainWindowChat::receiveMsg()
 {
     QString str(client->readAll());
-<<<<<<< Updated upstream
-    ui->textEdit_receive->append(str+"\n");
-=======
     qDebug()<<str;
     //解包
     char* recv_buffer = str.toLatin1().data();//162
@@ -143,7 +127,6 @@ void MainWindowChat::receiveMsg()
     qDebug()<<T;
 
     ui->textEdit_receive->append(W+":"+C+"\n"+T);
->>>>>>> Stashed changes
 }
 
 void MainWindowChat::returnUser()
@@ -151,8 +134,6 @@ void MainWindowChat::returnUser()
     emit closeWindowChat();
     disconnect(client, &QTcpSocket::readyRead, this, &MainWindowChat::receiveMsg);
 }
-<<<<<<< Updated upstream
-=======
 
 void MainWindowChat::timerUpdata()
 {
@@ -160,4 +141,3 @@ void MainWindowChat::timerUpdata()
     QString str = time.toString("yyyy-MM-dd hh:mm:ss");
     ui->labelTime->setText(str);
 }
->>>>>>> Stashed changes

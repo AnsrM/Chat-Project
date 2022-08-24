@@ -13,11 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-<<<<<<< Updated upstream
-  <widget class="QLabel" name="touxiang">
-=======
   <widget class="QLabel" name="labelIcon">
->>>>>>> Stashed changes
    <property name="geometry">
     <rect>
      <x>40</x>

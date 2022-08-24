@@ -3,10 +3,7 @@
 
 extern QTcpSocket* client;
 
-<<<<<<< Updated upstream
-=======
 //处理登陆注册信息的字符串
->>>>>>> Stashed changes
 MainWindowRegister::MainWindowRegister(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindowRegister)
@@ -76,11 +73,6 @@ void MainWindowRegister::submitData()
         sys = 2;
     }
 
-<<<<<<< Updated upstream
-    //发送格式：用户名|密码
-    QString str = userName + "|" + password;
-    client->write(str.toLocal8Bit());
-=======
     //发送格式打包
     if(sys == 1){
         QMessageBox::critical(this, "警告", "请将信息输入完整！", QMessageBox::Ok);
@@ -97,7 +89,6 @@ void MainWindowRegister::submitData()
         client->write(str.toUtf8());
     }
     sys = 0;
->>>>>>> Stashed changes
 }
 
 void MainWindowRegister::receiveMsgRegister()

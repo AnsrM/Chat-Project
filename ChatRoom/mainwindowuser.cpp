@@ -15,15 +15,6 @@ MainWindowUser::MainWindowUser(QWidget *parent) :
     ui->setupUi(this);
 
     setWindowTitle("用户界面");
-<<<<<<< Updated upstream
-
-    //gif动图
-    QMovie *movie = new QMovie(":/new/wenzi.gif");
-    ui->touxiang->setMovie(movie);
-    movie->start();
-=======
->>>>>>> Stashed changes
-
 
     //接受主窗口的数据
     connect(message1,SIGNAL(sendDataToMainWindowUser(QString,QString,QString)),this,SLOT(receiveDataFromMainWindow(QString,QString,QString)));
@@ -48,10 +39,6 @@ MainWindowUser::MainWindowUser(QWidget *parent) :
 
     //返回登录
     connect(ui->pushButtonReturn, &QPushButton::clicked, this, &MainWindowUser::returnLogin);
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 }
 
 MainWindowUser::~MainWindowUser()
