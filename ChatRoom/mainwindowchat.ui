@@ -84,7 +84,7 @@
      <x>510</x>
      <y>390</y>
      <width>141</width>
-     <height>31</height>
+     <height>41</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -104,14 +104,13 @@
     </item>
    </layout>
   </widget>
-
   <widget class="QWidget" name="widget_2" native="true">
    <property name="geometry">
     <rect>
      <x>510</x>
      <y>430</y>
      <width>141</width>
-     <height>31</height>
+     <height>41</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -137,10 +136,9 @@
      <x>510</x>
      <y>470</y>
      <width>141</width>
-     <height>31</height>
+     <height>41</height>
     </rect>
    </property>
-
    <layout class="QHBoxLayout" name="horizontalLayout_3">
     <item>
      <widget class="QLabel" name="label_3">
