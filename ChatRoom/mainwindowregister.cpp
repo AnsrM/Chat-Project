@@ -19,6 +19,11 @@ MainWindowRegister::MainWindowRegister(QWidget *parent) :
     connect(client, &QTcpSocket::readyRead, this, &MainWindowRegister::receiveMsgRegister);
 
     connect(ui->pushButtonReturn, &QPushButton::clicked, this, &MainWindowRegister::closeRegister);
+
+    //限制输入
+    QRegExp rxPassword("^[A-Za-z0-9]+$");
+    ui->lineEditPassword->setValidator(new QRegExpValidator(rxPassword));
+    ui->lineEditPasswordRepeat->setValidator(new QRegExpValidator(rxPassword));
 }
 
 MainWindowRegister::~MainWindowRegister()
@@ -72,6 +77,7 @@ void MainWindowRegister::submitData()
     {
         sys = 2;
     }
+    else if (password.size() > 8)
 
     //发送格式打包
     if(sys == 1){
@@ -79,6 +85,10 @@ void MainWindowRegister::submitData()
     }
     else if(sys == 2){
         QMessageBox::critical(this, "警告", "密码输入不一致！", QMessageBox::Ok);
+    }
+    else if (sys == 3)
+    {
+        QMessageBox::critical(this, "警告", "密码不能超过8位数！", QMessageBox::Ok);
     }
     else if(!sys){
         QByteArray usn;
