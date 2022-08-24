@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include "message.h"
 #include <cstring>
-
+#include <QApplication>
 Message *message1 = new Message();
 Message *message2 = new Message();
 extern Message *message3;
@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     client = new QTcpSocket(this);
 
-    QString hostAdress = "127.0.0.1";
+    QString hostAdress = "192.168.1.106";
     qDebug()<<"your:"<<hostAdress;
     client->connectToHost(QHostAddress(hostAdress), 50000);
 
@@ -40,6 +40,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QRegExp rxPassword("^[A-Za-z0-9]+$");
     ui->lineEditPassword->setValidator(new QRegExpValidator(rxPassword));
+
+    //修改样式
+    connect(ui->comboBox, &QComboBox::currentTextChanged, this, &MainWindow::changeStyle);
 
     //读取账号密码
     readInfo();
@@ -279,4 +282,25 @@ void MainWindow::readInfo()
     QString passwordSec = config -> value(QString("config/") + "password").toString();
     QByteArray passwordB64 = QByteArray::fromBase64(passwordSec.toLocal8Bit());
     ui->lineEditPassword->setText(QString::fromLocal8Bit(passwordB64));
+}
+
+void MainWindow::changeStyle()
+{
+    QFile styleSheet;
+
+    switch(ui->comboBox->currentIndex())
+    {
+    case 0:
+        styleSheet.setFileName(":/xxx.css");
+    case 1:
+        styleSheet.setFileName(":/xxx.css");
+    case 2:
+        styleSheet.setFileName(":/xxx.css");
+    }
+
+    /*if(styleSheet.open(QFile::ReadOnly)) {
+        QString styleString = styleSheet.readAll();
+        styleSheet.close();
+        static_cast<QApplication*>(QApplication::instance())->setStyleSheet(styleString);
+    }*/
 }

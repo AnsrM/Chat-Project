@@ -39,6 +39,11 @@ MainWindowUser::MainWindowUser(QWidget *parent) :
 
     //返回登录
     connect(ui->pushButtonReturn, &QPushButton::clicked, this, &MainWindowUser::returnLogin);
+
+    //更换头像
+    connect(ui->pushButton_change, &QPushButton::clicked, this, &MainWindowUser::changeIcon);
+
+    changeIcon();
 }
 
 MainWindowUser::~MainWindowUser()
@@ -83,36 +88,37 @@ void MainWindowUser::returnLogin()
 
 
 
-void MainWindowUser::on_pushButton_change_clicked()
+void MainWindowUser::changeIcon()
 {
-    changes++;
-    changes = changes%7;
-    if (changes == 0)
-    {
-        ui->pushButton_touxiang->setIcon(QIcon(":/new/wanhao.jpg"));
+    changes = (changes + 1) % 7;
+
+    QImage *img=new QImage;
+
+    switch (changes) {
+    case 0:
+        img->load(":/new/fengnv.JPG");
+        break;
+    case 1:
+        img->load(":/new/foyege.JPG");
+        break;
+    case 2:
+        img->load(":/new/lulu.JPG");
+        break;
+    case 3:
+        img->load(":/new/maomi.JPG");
+        break;
+    case 4:
+        img->load(":/new/wanhao.JPG");
+        break;
+    case 5:
+        img->load(":/new/nandao.JPG");
+        break;
+    default:
+        img->load(":/new/yasuo.JPG");
+        break;
     }
-    else if (changes == 1)
-    {
-        ui->pushButton_touxiang->setIcon(QIcon(":/new/fengnv.jpg"));
-    }
-    else if (changes == 2)
-    {
-        ui->pushButton_touxiang->setIcon(QIcon(":/new/foyege.jpg"));
-    }
-    else if (changes == 3)
-    {
-        ui->pushButton_touxiang->setIcon(QIcon(":/new/lulu.jpg"));
-    }
-    else if (changes == 4)
-    {
-        ui->pushButton_touxiang->setIcon(QIcon(":/new/maomi.jpg"));
-    }
-    else if (changes == 5)
-    {
-        ui->pushButton_touxiang->setIcon(QIcon(":/new/nandao.jpg"));
-    }
-    else
-    {
-        ui->pushButton_touxiang->setIcon(QIcon(":/new/yasuo.jpg"));
-    }
+
+    QPixmap icon = QPixmap::fromImage(*img).scaled(ui->labelIcon->size(),Qt::KeepAspectRatio);
+
+    ui->labelIcon->setPixmap(icon);
 }

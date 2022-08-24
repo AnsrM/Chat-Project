@@ -12,6 +12,7 @@
 #include <QMessageBox>
 #include <QNetworkInterface>
 #include <QSettings.h>
+#include <QFile>
 
 namespace Ui {
 class MainWindow;
@@ -55,6 +56,9 @@ public:
 
     //读取账号密码
     void readInfo();
+
+    //更改样式
+    void changeStyle();
 
 private:
     Ui::MainWindow *ui;

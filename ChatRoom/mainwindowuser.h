@@ -27,6 +27,8 @@ public:
 
     void returnLogin();
 
+    void changeIcon();
+
 private:
     Ui::MainWindowUser *ui;
 

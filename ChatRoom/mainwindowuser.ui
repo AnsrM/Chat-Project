@@ -152,13 +152,13 @@
     <string>更换头像</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_touxiang">
+  <widget class="QLabel" name="labelIcon">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>20</y>
-     <width>241</width>
-     <height>161</height>
+     <x>60</x>
+     <y>40</y>
+     <width>181</width>
+     <height>131</height>
     </rect>
    </property>
    <property name="text">
